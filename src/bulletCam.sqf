@@ -3,6 +3,7 @@ Bullet Camera Script: bulletcam.sqf
 
 Created By: Big Dawg KS 2/14/2011 ARMA 2 v 1.2
 Updated By: Cobra4v320 3/26/2013 ARMA 3 v 1.3
+Updated By: tricktrap 07/04/2018 ARMA 3 v1.4
 
 Description:
 Shows the path of the bullet in slowmotion until it hits a target or another object.
