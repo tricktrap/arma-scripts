@@ -82,8 +82,9 @@ if (call {if (isNil "BDKS_DisableBulletCam") then {true} else {!BDKS_DisableBull
         _cancel = false;
 
         while {alive _projectile && alive _camera && !_cancel} do {
+          _cameraVelocityFactor = 0.05;
           _camera camSetTarget _projectile;
-          _camera camSetRelPos _relPos;
+          _camera camSetRelPos ((velocityModelSpace _projectile) vectorMultiply (-1 * _cameraVelocityFactor));
           _camera camSetFOV _fov;
           _camera camSetFocus [600,2];
           _camera camCommit 0;
