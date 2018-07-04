@@ -30,10 +30,11 @@ if (call {if (isNil "BDKS_DisableBulletCam") then {true} else {!BDKS_DisableBull
 
   if ((_this select 0) == vehicle player || call {if (isNil {(_this select 0) getVariable "BDKS_ShowBulletCamToPlayer"}) then {false} else {(_this select 0) getVariable "BDKS_ShowBulletCamToPlayer"}})then {
 
-    // Add more weapons here
-    _list = ["srifle_EBR_F","arifle_MXM_F","launch_NLAW_F","launch_RPG32_F","GL_3GL_F","EGLM","mortar_82mm"];
+    // Add more types
+    _list = ["shotBullet", "shotMissile", "shotShell", "shotGrenade"];
 
     _type = getText (configFile >> "CfgAmmo" >> (_this select 4) >> "simulation");
+    hint _type;
     _relPos = [0,-13,0.05];
     _fov = 0.05;
     _accTime = 0.5;
@@ -50,7 +51,7 @@ if (call {if (isNil "BDKS_DisableBulletCam") then {true} else {!BDKS_DisableBull
     _enableParticles = true;
     if (call {if(isNil "BDKS_BulletCamNoParticleFX")then{false}else{BDKS_BulletCamNoParticleFX}}) then {_enableParticles = false};
 
-    if ((_this select 2) in _list && !(isNull _projectile)) then {
+    if (_type in _list && !(isNull _projectile)) then {
       setAccTime _accTime;
       _camera = "camera" camCreate (getPos _projectile);
       _camera cameraEffect ["INTERNAL","BACK"];
