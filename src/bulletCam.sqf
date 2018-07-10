@@ -31,7 +31,7 @@ if (call {if (isNil "BDKS_DisableBulletCam") then {true} else {!BDKS_DisableBull
   if ((_this select 0) == vehicle player || call {if (isNil {(_this select 0) getVariable "BDKS_ShowBulletCamToPlayer"}) then {false} else {(_this select 0) getVariable "BDKS_ShowBulletCamToPlayer"}})then {
 
     // Add more types
-    _list = ["shotBullet", "shotMissile", "shotShell", "shotGrenade"];
+    _list = ["shotBullet", "shotRocket", "shotMissile", "shotShell", "shotGrenade"];
 
     _type = getText (configFile >> "CfgAmmo" >> (_this select 4) >> "simulation");
     hint _type;
